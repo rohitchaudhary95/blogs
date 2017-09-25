@@ -10,7 +10,7 @@ Some use-cases of ElasticSearch are:
 
 In this tutorial we'll cover of How to connect to ElasticSearch using Python, inserting Data and Making query to ElasticSearch.
 
-##**Installation**
+## **Installation**
 
 Install ElasticSearch :
 
@@ -29,7 +29,7 @@ $ pip install elasticsearch
 ```
 
 
-##**Let's Start**
+## **Let's Start**
 
 ### **Intro to ElasticSearch**
 
@@ -48,7 +48,7 @@ You can (very roughly) think of an index like a database.
 MySQL => Databases => Tables => Columns/Rows
 Elasticsearch => Indices => Types => Documents with Properties
 
-###**Connecting to ElasticSearch**
+### **Connecting to ElasticSearch**
 
 Start ElasticSearch Server
 ```sh
@@ -60,7 +60,7 @@ from elasticsearch import Elasticsearch
 es = Elasticsearch()
 ```
 
-###**Creating Index**
+### **Creating Index**
 Just like we define schema for a Database, in ElasticSearch we need to define a mapping.
 
 ```python
@@ -83,7 +83,7 @@ res = es.indices.create(index = test_index, body = request_body)
 ```
 *Mapping for type = Blog is defined above*
 
-###**Adding data to Index**
+### **Adding data to Index**
 
 Indexing a single document
 ```python
@@ -117,7 +117,7 @@ for x in range(0,1000):
 helpers.bulk(es, data)
 ```
 
-###**Time to Query!**
+### **Time to Query!**
 
 ```python
 res = es.search(index="test-index", body={"query": {"match_all": {}}})
@@ -128,5 +128,5 @@ for hit in res['hits']['hits']:
 
 *Body contains the query to searched.* 
 
-###**Conclusion**
+### **Conclusion**
 With Python you can easily connect with ElasticSearch and insert Data, execute queries and Search data at almost real time. You can also see other types of queries in ElasticSearch [here.](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html)
